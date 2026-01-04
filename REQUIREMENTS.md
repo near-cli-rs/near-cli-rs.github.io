@@ -340,11 +340,14 @@ near-cli-landing/
 ### Feature Highlights
 
 1. Interactive Prompts
-2. Blazingly Fast (Rust)
-3. Secure by Default (system keychain)
-4. All-in-One tool
-5. Multi-Network support
+2. Transaction Reconstruction - recreate CLI commands from on-chain transactions
+3. Ledger Support - hardware wallet signing
+4. MPC Support - Multi-Party Computation for account control
+5. DAO Integration - turn any command into a DAO proposal
 6. TEACH-ME mode
+7. Blazingly Fast (Rust)
+8. Secure by Default (system keychain)
+9. Multi-Network support
 
 ### CLI Commands Showcased
 
