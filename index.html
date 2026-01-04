@@ -1,9 +1,345 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; url='https://github.com/FroVolod/near-cli'" />
-  </head>
-  <body>
-    <p>Please follow <a href="https://github.com/FroVolod/near-cli">this link</a>.</p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>near-cli-rs - Human-friendly NEAR Protocol CLI</title>
+    <meta name="description" content="A human-friendly console utility to interact with NEAR Protocol from command line. Written in Rust for maximum performance.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-icon">▸</span>
+                <span class="logo-text">near-cli-rs</span>
+            </a>
+            <div class="nav-links">
+                <a href="https://github.com/near/near-cli-rs" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://docs.near.org/tools/near-cli" target="_blank" rel="noopener">Docs</a>
+                <a href="https://near.org" target="_blank" rel="noopener">NEAR Protocol</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                The human-friendly<br>
+                <span class="highlight">NEAR Protocol CLI</span>
+            </h1>
+            <p class="hero-subtitle">
+                A blazingly fast console utility written in Rust.
+                Interactive prompts guide you through every command.
+            </p>
+
+            <!-- Installation Tabs -->
+            <div class="install-section">
+                <div class="install-tabs">
+                    <button class="install-tab active" data-tab="shell">shell</button>
+                    <button class="install-tab" data-tab="npm">npm</button>
+                    <button class="install-tab" data-tab="npx">npx</button>
+                    <button class="install-tab" data-tab="cargo">cargo</button>
+                    <button class="install-tab" data-tab="powershell">powershell</button>
+                    <button class="install-tab" data-tab="binary">binary</button>
+                </div>
+                <div class="install-content">
+                    <div class="install-pane active" id="shell">
+                        <code>curl --proto '=https' --tlsv1.2 -LsSf https://github.com/near/near-cli-rs/releases/latest/download/near-cli-rs-installer.sh | sh</code>
+                        <button class="copy-btn" data-copy="curl --proto '=https' --tlsv1.2 -LsSf https://github.com/near/near-cli-rs/releases/latest/download/near-cli-rs-installer.sh | sh" aria-label="Copy to clipboard">
+                            <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        </button>
+                    </div>
+                    <div class="install-pane" id="npm">
+                        <code>npm install -g near-cli-rs</code>
+                        <button class="copy-btn" data-copy="npm install -g near-cli-rs" aria-label="Copy to clipboard">
+                            <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        </button>
+                    </div>
+                    <div class="install-pane" id="npx">
+                        <code>npx near-cli-rs</code>
+                        <button class="copy-btn" data-copy="npx near-cli-rs" aria-label="Copy to clipboard">
+                            <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        </button>
+                    </div>
+                    <div class="install-pane" id="cargo">
+                        <code>cargo install near-cli-rs</code>
+                        <button class="copy-btn" data-copy="cargo install near-cli-rs" aria-label="Copy to clipboard">
+                            <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        </button>
+                    </div>
+                    <div class="install-pane" id="powershell">
+                        <code>irm https://github.com/near/near-cli-rs/releases/latest/download/near-cli-rs-installer.ps1 | iex</code>
+                        <button class="copy-btn" data-copy="irm https://github.com/near/near-cli-rs/releases/latest/download/near-cli-rs-installer.ps1 | iex" aria-label="Copy to clipboard">
+                            <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        </button>
+                    </div>
+                    <div class="install-pane" id="binary">
+                        <code># Download portable binary from GitHub Releases<br>https://github.com/near/near-cli-rs/releases</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-cta">
+                <a href="https://docs.near.org/tools/near-cli" class="btn btn-primary">Read the docs</a>
+                <a href="https://github.com/near/near-cli-rs" class="btn btn-secondary">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terminal Demo Section -->
+    <section class="demo-section">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="terminal-btn close"></span>
+                    <span class="terminal-btn minimize"></span>
+                    <span class="terminal-btn maximize"></span>
+                </div>
+                <span class="terminal-title">near</span>
+            </div>
+            <div class="terminal-body" id="terminal-demo">
+                <!-- Terminal content will be animated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Why near-cli-rs?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">▸</div>
+                <h3>Interactive Prompts</h3>
+                <p>Never remember complex command syntax again. Just type <code>near</code> and follow the guided prompts.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Blazingly Fast</h3>
+                <p>Written in Rust for maximum performance. Instant startup, no runtime dependencies.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>Secure by Default</h3>
+                <p>Keys stored securely in your system keychain. Full-access and function-call keys supported.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <h3>All-in-One</h3>
+                <p>Manage accounts, tokens, staking, contracts, and transactions - all from one tool.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>Multi-Network</h3>
+                <p>Seamlessly switch between mainnet, testnet, and custom networks with simple configuration.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>TEACH-ME Mode</h3>
+                <p>Learn as you go with the built-in <code>--teach-me</code> flag that explains every action.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Overview -->
+    <section class="commands-section">
+        <h2 class="section-title">What you can do</h2>
+        <div class="commands-grid">
+            <div class="command-card">
+                <div class="command-header">
+                    <span class="command-prompt">$</span>
+                    <span class="command-name">near account</span>
+                </div>
+                <ul class="command-list">
+                    <li>View account summary</li>
+                    <li>Import & export accounts</li>
+                    <li>Create subaccounts</li>
+                    <li>Manage access keys</li>
+                    <li>Delete accounts</li>
+                </ul>
+            </div>
+            <div class="command-card">
+                <div class="command-header">
+                    <span class="command-prompt">$</span>
+                    <span class="command-name">near tokens</span>
+                </div>
+                <ul class="command-list">
+                    <li>Send NEAR tokens</li>
+                    <li>Transfer fungible tokens</li>
+                    <li>Transfer NFTs</li>
+                    <li>View balances</li>
+                    <li>View NFT assets</li>
+                </ul>
+            </div>
+            <div class="command-card">
+                <div class="command-header">
+                    <span class="command-prompt">$</span>
+                    <span class="command-name">near contract</span>
+                </div>
+                <ul class="command-list">
+                    <li>Call view functions</li>
+                    <li>Call change methods</li>
+                    <li>Deploy contracts</li>
+                    <li>Verify contracts</li>
+                    <li>Download WASM/ABI</li>
+                </ul>
+            </div>
+            <div class="command-card">
+                <div class="command-header">
+                    <span class="command-prompt">$</span>
+                    <span class="command-name">near staking</span>
+                </div>
+                <ul class="command-list">
+                    <li>View delegation info</li>
+                    <li>Delegate to validators</li>
+                    <li>Withdraw stake</li>
+                    <li>View validator list</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Terminals -->
+    <section class="interactive-section">
+        <h2 class="section-title">See it in action</h2>
+        <div class="demo-grid">
+            <div class="demo-card">
+                <h3>Managing Accounts</h3>
+                <div class="mini-terminal">
+                    <div class="term-line">
+                        <span class="term-prompt">◆</span>
+                        <span class="term-question">What do you want to do with an account?</span>
+                    </div>
+                    <div class="term-options">
+                        <div class="term-option selected">
+                            <span class="radio filled"></span>
+                            <span>view-account-summary</span>
+                            <span class="term-desc">- View properties for an account</span>
+                        </div>
+                        <div class="term-option">
+                            <span class="radio"></span>
+                            <span>import-account</span>
+                            <span class="term-desc">- Import existing account</span>
+                        </div>
+                        <div class="term-option">
+                            <span class="radio"></span>
+                            <span>create-account</span>
+                            <span class="term-desc">- Create a new account</span>
+                        </div>
+                        <div class="term-option">
+                            <span class="radio"></span>
+                            <span>list-keys</span>
+                            <span class="term-desc">- View access keys</span>
+                        </div>
+                    </div>
+                    <div class="term-hint">[↑↓ to move, enter to select, type to filter]</div>
+                </div>
+            </div>
+            <div class="demo-card">
+                <h3>Smart Contracts</h3>
+                <div class="mini-terminal">
+                    <div class="term-line">
+                        <span class="term-prompt">◆</span>
+                        <span class="term-question">Choose a contract action:</span>
+                    </div>
+                    <div class="term-options">
+                        <div class="term-option selected">
+                            <span class="radio filled"></span>
+                            <span>call-function</span>
+                            <span class="term-desc">- Execute contract method</span>
+                        </div>
+                        <div class="term-option">
+                            <span class="radio"></span>
+                            <span>deploy</span>
+                            <span class="term-desc">- Deploy WASM code</span>
+                        </div>
+                        <div class="term-option">
+                            <span class="radio"></span>
+                            <span>inspect</span>
+                            <span class="term-desc">- List function names</span>
+                        </div>
+                        <div class="term-option">
+                            <span class="radio"></span>
+                            <span>verify</span>
+                            <span class="term-desc">- Verify contract code</span>
+                        </div>
+                    </div>
+                    <div class="term-hint">[↑↓ to move, enter to select, type to filter]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section 
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">0.23.5</div>
+                <div class="stat-label">Latest Version</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">Rust</div>
+                <div class="stat-label">Built with</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">MIT</div>
+                <div class="stat-label">License</div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>Where are my keys stored?</summary>
+                <p>Keys are securely stored in your system's native keychain (macOS Keychain, Windows Credential Manager, or Linux Secret Service). Legacy plaintext keys from near-cli are also supported for migration.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I use it in scripts?</summary>
+                <p>Yes! While the interactive mode is great for exploration, you can also pass all arguments directly for scripting. Use <code>--quiet</code> mode for minimal output suitable for pipelines.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How do I switch networks?</summary>
+                <p>Use <code>near config</code> to manage network configurations. You can set a default network or specify per-command with the network selection prompt.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How is this different from near-cli (JavaScript)?</summary>
+                <p>near-cli-rs is a complete rewrite in Rust, offering faster startup times, no Node.js dependency, interactive prompts, and better security with system keychain integration. It's the recommended CLI for new users.</p>
+            </details> 
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-icon">▸</span>
+                <span>near-cli-rs</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/near/near-cli-rs" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://docs.near.org/tools/near-cli" target="_blank" rel="noopener">Documentation</a>
+                <a href="https://near.org" target="_blank" rel="noopener">NEAR Protocol</a>
+                <a href="https://discord.gg/near" target="_blank" rel="noopener">Discord</a>
+            </div>
+            <p class="footer-copyright">Built for the NEAR ecosystem</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
