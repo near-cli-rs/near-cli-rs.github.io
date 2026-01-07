@@ -625,6 +625,110 @@ code {
     margin-top: 0.5rem;
 }
 
+/* Testimonials Section */
+.testimonials-section {
+    padding: var(--section-padding);
+    background: var(--bg-secondary);
+}
+
+.testimonials-grid {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.testimonial-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: all 0.2s ease;
+}
+
+.testimonial-card:hover {
+    border-color: var(--accent-dim);
+    transform: translateY(-2px);
+}
+
+.testimonial-content {
+    flex: 1;
+}
+
+.testimonial-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+    position: relative;
+}
+
+.testimonial-content p::before {
+    content: '"';
+    font-size: 3rem;
+    color: var(--accent-dim);
+    position: absolute;
+    top: -0.5rem;
+    left: -0.75rem;
+    opacity: 0.3;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-secondary);
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.author-name {
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.author-handle {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+}
+
+.tweet-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid var(--border-primary);
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.tweet-link:hover {
+    border-color: var(--accent-dim);
+    color: var(--accent-primary);
+    background: var(--bg-tertiary);
+}
+
+.tweet-link svg {
+    width: 16px;
+    height: 16px;
+}
+
 /* FAQ Section */
 .faq-section {
     padding: var(--section-padding);
